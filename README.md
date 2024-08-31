@@ -12,7 +12,7 @@ the code written. <br>
 
 <h3>Technologies used are</h3>
 • Front-End – React <br>
-• Back-End –Nodejs Or DotNet Core <br>
-• Database: Mongo DB OR any other database <br>
-• UI: HTML, CSS and technologies like Bootstrap for developing pixel perfect
+• Back-End – Nodejs <br>
+• Database - Mongo DB  <br>
+• UI - HTML, CSS and technologies like Bootstrap for developing pixel perfect
 UI <br>
