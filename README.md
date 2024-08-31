@@ -1,5 +1,5 @@
-<h2>Techprimelab Assignment document</h2><br>
-Assignment introduction <br>
+<h2>Techprimelab Assignment document </h2><br>
+<h3> Assignment introduction </h3> <br>
 • The Assignment consists of a mini project which needs to be developed using Frontend
 and backend technologies <br>
 • The assignment is to demonstrate candidates Full Stack development capabilities <br>
@@ -10,7 +10,7 @@ accessed using the link in the last page <br>
 the code written. <br>
 • On clearing the interview you will be given the offer letter. <br>
 
-<h3>Technologies used are</h3>
+<h3>Technologies used are </h3>
 • Front-End :– React.js <br>
 • Back-End :– Node.js, Expres.js. <br>
 • Database :- Mongo DB.  <br>
