@@ -10,7 +10,7 @@ accessed using the link in the last page <br>
 the code written. <br>
 • On clearing the interview you will be given the offer letter. <br>
 
-<h3>Technologies which can be used are</h3>
+<h3>Technologies used are</h3>
 • Front-End – React <br>
 • Back-End –Nodejs Or DotNet Core <br>
 • Database: Mongo DB OR any other database <br>
