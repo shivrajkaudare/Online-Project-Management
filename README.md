@@ -11,8 +11,8 @@ the code written. <br>
 • On clearing the interview you will be given the offer letter. <br>
 
 <h3>Technologies used are</h3>
-• Front-End – React <br>
-• Back-End – Nodejs <br>
-• Database - Mongo DB  <br>
-• UI - HTML, CSS and technologies like Bootstrap for developing pixel perfect
-UI <br>
+• Front-End :– React.js <br>
+• Back-End :– Node.js, Expres.js. <br>
+• Database :- Mongo DB.  <br>
+• UI :- HTML, CSS and technologies like Bootstrap for developing pixel perfect
+UI. <br>
