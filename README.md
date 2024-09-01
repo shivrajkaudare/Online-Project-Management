@@ -1,4 +1,4 @@
-<h2>Techprimelab Assignment </h2><br>
+<h2>Techprimelab Assignment :</h2><br>
 <h3> Assignment introduction </h3>
 • The Assignment consists of a mini project which needs to be developed using Frontend
 and backend technologies <br>
