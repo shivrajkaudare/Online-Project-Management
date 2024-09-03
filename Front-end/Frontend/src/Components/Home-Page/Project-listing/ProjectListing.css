@@ -1,0 +1,39 @@
+/* Dashboard.css */
+
+.container {
+  height: 768px;
+  width: 1308px;
+  position: relative;
+}
+
+.header {
+  margin-top: 36.7px;
+  height: 350px;
+  width: 1308px;
+  background-image: url("/src/assets/images/Header-bg.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+}
+
+.header h2 {
+  margin: 50px 486px 81px 50px;
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+}
+
+.login-logo {
+  align-items: center;
+  height: 53px;
+  width: 60px;
+  opacity: 1;
+  margin: 35px 600px 26px 620px;
+}
+
+.tablecontainer {
+}

@@ -1,0 +1,122 @@
+/* Dashboard.css */
+
+.container {
+  height: 780px;
+  width: 1308px;
+  position: relative;
+}
+
+.header {
+  margin-top: 36.7px;
+  height: 350px;
+  width: 1308px;
+  background-image: url("/src/assets/images/Header-bg.svg");
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+}
+
+.header h2 {
+  margin: 50px 486px 81px 50px;
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+}
+
+.login-logo {
+  align-items: center;
+  height: 53px;
+  width: 60px;
+  opacity: 1;
+  margin: 35px 600px 26px 620px;
+}
+
+.Container-body {
+  margin-top: -600px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.cards-container {
+  margin-top: -630px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.Cards {
+  height: 83px;
+  width: 237.6px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: inset 5px 0 0px 0 #0cc9e8;
+}
+
+.Cards .C-content {
+  display: flex;
+  flex-direction: column;
+  justify-items: left;
+  height: 100%;
+}
+
+.Cards h1 {
+  margin: 0px 119px 0 17px;
+  height: 54px;
+  width: 102px;
+  color: #474d52;
+  font-family: "Nunito Sans";
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 54px;
+}
+.Cards h5 {
+  margin: 8px 119px 0 17px;
+  height: 20px;
+  width: 110px;
+  color: #474d52;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.chart-Container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  margin: 0px 799px 0px 18px;
+}
+.chart {
+  margin: 0px 655px 40px 0px;
+  height: 387px;
+  width: 635px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 7px 18px 0 rgba(2, 118, 179, 0.13);
+}
+h3 {
+  margin: 21px 799px 13px 18px;
+  height: 27px;
+  width: 400px;
+  color: #010202;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 27px;
+}

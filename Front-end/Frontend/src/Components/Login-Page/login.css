@@ -1,0 +1,171 @@
+/* Login.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 110vh;
+  position: relative;
+  overflow: hidden;
+  background-color: #f5f7fa;
+  background-image: url("src/assets/images/login-bg-1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+}
+
+.login-logo {
+  text-align: center;
+  z-index: 2;
+}
+
+.login-logo img {
+  height: 76px;
+  width: 85px;
+  margin: 10px 640px 0px 641px;
+}
+
+.login-logo h3 {
+  margin: 20px 580px 30px 587px;
+  height: 22px;
+  width: 210px;
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+}
+
+.login-box {
+  height: 450px;
+  width: 410px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 7px 18px 0 rgba(2, 118, 179, 0.13);
+}
+
+h3 {
+  height: 27px;
+  width: 190px;
+  margin: 50px 122px 62px 118px;
+  color: #3f3f3f;
+  font-family: "Nunito Sans";
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.login-form .input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-form label {
+  display: block;
+  height: 19px;
+  width: 63px;
+  color: #767676;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.input-group input {
+  box-sizing: border-box;
+  height: 48px;
+  width: 337px;
+  border: 1px solid #979797;
+  border-radius: 6px;
+}
+.input1 {
+  margin: 41px 37px 31px 36px;
+}
+.input2 {
+  margin: 0px 36px 8px 36px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-container .toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  height: 14px;
+  width: 105px;
+  color: #025aab;
+  font-family: "Work Sans";
+  font-size: 12px;
+  letter-spacing: 0;
+  margin: 0px 37px 24px 268px;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  height: 36px;
+  width: 169px;
+
+  border: none;
+  border-radius: 20px;
+  background-color: #008cdd;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px 120px 53px 121px;
+}
+
+.login-button:hover {
+  background-color: #007bb5;
+}
+
+/* eye button toggling*/
+.fa-regular {
+  height: 19px;
+  width: 24px;
+  margin: 23px 1px 10px;
+  opacity: 0.7;
+}
+
+.input-error {
+  border-color: red !important;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.login-error-message {
+  text-align: center;
+  color: red;
+  font-size: 13px;
+  opacity: 0.7;
+}

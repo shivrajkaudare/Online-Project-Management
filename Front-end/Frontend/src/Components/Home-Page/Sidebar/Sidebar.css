@@ -1,0 +1,47 @@
+.container {
+  background-color: #d8d8d8;
+  width: 1308px;
+  height: 780px;
+  display: flex;
+}
+.sidebar {
+  background-color: #ffffff;
+  height: 780px;
+  width: 58px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+}
+.sidebar .line {
+  box-sizing: border-box;
+  height: 1px;
+  width: 33px;
+  border: 1px solid #979797;
+  opacity: 0.53;
+  margin: 0px 12px 28.5px 13px;
+}
+.sec1 .logo1 {
+  height: 20px;
+  width: 18px;
+  margin: 270px 16px 41px 17px;
+  cursor: pointer;
+}
+.sec1 .logo2 {
+  height: 20px;
+  width: 18px;
+  margin: 41px 16px 39px 17px;
+  cursor: pointer;
+}
+.sec2 .logo1 {
+  margin: 0px 17.5px 281.5px 19.5px;
+  cursor: pointer;
+}
+.sec2 .logo2 {
+  margin: 0px 19px 41px 19px;
+  cursor: pointer;
+}
+.content {
+  height: 768px;
+  width: 1250px;
+}
