@@ -1,4 +1,3 @@
-
 // server.js (or your main server file)
 const express = require("express");
 const mongoose = require("mongoose");
@@ -13,14 +12,16 @@ const jwt = require("jsonwebtoken");
 const app = express();
 const PORT = 8080;
 
-app.use(cors({ origin: "http://localhost:5173" })); // Adjust the origin as needed
+app.use(cors({ origin: "http://localhost:5173" }));
+
 app.use(bodyParser.json()); // To parse JSON bodies
+
 //middle for parse the data send by post method
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/Project", {
+  .connect("mongodb://127.0.0.1:27017/Projectman", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -100,6 +101,59 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Route to fetch dashboard stats
+app.get("/dashboard/stats", async (req, res) => {
+  try {
+    const totalProjects = await Project.countDocuments();
+    const closedProjects = await Project.countDocuments({ status: "Closed" });
+    const runningProjects = await Project.countDocuments({ status: "Running" });
+    const closureDelayProjects = await Project.countDocuments({
+      status: "Closure Delay",
+    });
+    const cancelledProjects = await Project.countDocuments({
+      status: "Cancelled",
+    });
+
+    res.json({
+      totalProjects,
+      closedProjects,
+      runningProjects,
+      closureDelayProjects,
+      cancelledProjects,
+    });
+  } catch (error) {
+    console.error("Error fetching dashboard stats:", error);
+    res.status(500).json({ message: "Error fetching dashboard stats" });
+  }
+});
+
+//  route to fetch total and closed projects by department - For chart on dashbord.
+app.get("/projects/department-summary", async (req, res) => {
+  try {
+    const departments = ["STR", "FIN", "QLT", "MAN", "STO", "HR"];
+
+    const projectSummary = await Promise.all(
+      departments.map(async (department) => {
+        const totalProjects = await Project.countDocuments({ department });
+        const closedProjects = await Project.countDocuments({
+          department,
+          status: "Closed",
+        });
+
+        return {
+          department,
+          totalProjects,
+          closedProjects,
+        };
+      })
+    );
+
+    res.json(projectSummary);
+  } catch (error) {
+    res.status(500).send("Error fetching project summary");
+  }
+});
+
 // Route to save a project
 app.post("/addproject", async (req, res) => {
   try {
@@ -121,6 +175,22 @@ app.get("/projects", async (req, res) => {
     res.status(200).json(projects);
   } catch (error) {
     res.status(500).json({ message: "Error retrieving projects", error });
+  }
+});
+app.get("/projects", async (req, res) => {
+  const { page = 1, limit = 10 } = req.query;
+  try {
+    const projects = await Project.find()
+      .skip((page - 1) * limit)
+      .limit(parseInt(limit));
+    const totalProjects = await Project.countDocuments();
+    res.json({
+      projects,
+      totalPages: Math.ceil(totalProjects / limit),
+      currentPage: page,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching projects" });
   }
 });
 
