@@ -6,6 +6,7 @@ and backend technologies <br>
 <h3>Technologies used are </h3>
 • Front-End :– React.js, Chart.js <br>
 • Back-End :– Node.js, Expres.js. <br>
-• Database :- Mongo DB.  <br>
+• Database :- Mongo DB. Mongoose <br>
 • UI :- HTML, CSS and technologies like Bootstrap for developing pixel perfect
 UI. <br>
+bcrpt package for hash the password.
