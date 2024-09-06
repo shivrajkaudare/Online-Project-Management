@@ -9,4 +9,4 @@ and backend technologies <br>
 • Database :- Mongo DB. Mongoose <br>
 • UI :- HTML, CSS and technologies like Bootstrap for developing pixel perfect
 UI. <br>
-bcrpt package for hash the password.
+• bcrpt package for hash the password.
