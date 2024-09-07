@@ -1,6 +1,6 @@
 <h2>Techprimelab Assignment :</h2><br>
 <h3> Assignment introduction </h3>
-• Mini Project which is consist of full stack project functionalities like which contain 3 Pages Dashboard, Project listing, Add new Project. these pages contain functionalities add project, update prooject , change project status(Running, cancelled, Closed), etc. <br>
+• Mini Project having full stack project functionalities. it contains 3 Pages Dashboard, Project listing and Add new Project. these pages contain functionalities like add project, update prooject , change project status(Running, cancelled, Closed), etc. <br>
 
 <h3>Technologies used are </h3>
 • Front-End :– React.js, Chart.js <br>
