@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -19,29 +21,56 @@ ChartJS.register(
 );
 
 const BarChart = () => {
-  const data = {
-    labels: ["STR", "FIN", "QLT", "MAN", "STO", "HR"],
-    datasets: [
-      {
-        label: "Total",
-        data: [19, 7, 9, 15, 5, 10],
-        backgroundColor: "#3687DC",
-        borderRadius: 10,
-        barThickness: 8, // Thinner bars for more space between them
-        barPercentage: 0.8,
-        categoryPercentage: 0.5,
-      },
-      {
-        label: "Closed",
-        data: [14, 6, 8, 15, 5, 9],
-        backgroundColor: "#7EC858",
-        borderRadius: 10,
-        barThickness: 8, // Thinner bars for more space between them
-        barPercentage: 0.8,
-        categoryPercentage: 0.5,
-      },
-    ],
-  };
+  const [chartData, setChartData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/projects/department-summary"
+        );
+        const data = response.data;
+
+        // Prepare chart data based on the response
+        const departments = data.map((d) => d.department);
+        const totalProjects = data.map((d) => d.totalProjects);
+        const closedProjects = data.map((d) => d.closedProjects);
+
+        const formattedData = {
+          labels: departments,
+          datasets: [
+            {
+              label: "Total Projects",
+              data: totalProjects,
+              backgroundColor: "#3687DC",
+              borderRadius: 10,
+              barThickness: 8,
+              barPercentage: 0.8,
+              categoryPercentage: 0.5,
+            },
+            {
+              label: "Closed Projects",
+              data: closedProjects,
+              backgroundColor: "#7EC858",
+              borderRadius: 10,
+              barThickness: 8,
+              barPercentage: 0.8,
+              categoryPercentage: 0.5,
+            },
+          ],
+        };
+
+        setChartData(formattedData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching project data", error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const options = {
     responsive: true,
@@ -83,12 +112,16 @@ const BarChart = () => {
         },
       },
     },
-    grouped: true, // Ensure bars are grouped but have space between them
+    grouped: true,
   };
 
   return (
     <div style={{ width: "100%", height: "370px" }}>
-      <Bar data={data} options={options} />
+      {loading ? (
+        <p>Loading chart...</p>
+      ) : (
+        <Bar data={chartData} options={options} />
+      )}
     </div>
   );
 };
