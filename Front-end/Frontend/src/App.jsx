@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./Components/Login-Page/Login";
-import SideBar from "./Components/Home-Page/SideBar/SideBar";
-import Dashboard from "./Components/Home-Page/Dashbord/Dashbord";
+import Login from "./Components/Login-Page/login.jsx";
+import SideBar from "./Components/Home-Page/SideBar/Sidebar.jsx";
+import Dashboard from "./Components/Home-Page/Dashbord/Dashbord.jsx";
 import NewProject from "./Components/Home-Page/NewProject/NewProject";
-import ProjectListing from "./Components/Home-Page/Project-listing/ProjectListing";
+import ProjectListing from "./Components/Home-Page/Project-listing/ProjectListing.jsx";
 
 function App() {
   return (
