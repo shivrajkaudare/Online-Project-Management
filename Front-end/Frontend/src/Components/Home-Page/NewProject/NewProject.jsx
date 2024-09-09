@@ -17,15 +17,57 @@ const NewProject = () => {
     status: "Registered",
   });
 
+  // State for tracking validation errors
+  const [errors, setErrors] = useState({
+    theme: false,
+    startDate: false,
+    endDate: false,
+  });
+
   const handleChange = (event) => {
-    // const { name, value } = event.target;
     setProjectData({
       ...projectData,
       [event.target.name]: event.target.value,
     });
+
+    // Clear error for the field that is being typed into
+    setErrors({
+      ...errors,
+      [event.target.name]: false,
+    });
+  };
+
+  // Validate fields before submitting the form
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {
+      theme: false,
+      startDate: false,
+      endDate: false,
+    };
+
+    if (!projectData.theme) {
+      newErrors.theme = true;
+      isValid = false;
+    }
+    if (!projectData.startDate) {
+      newErrors.startDate = true;
+      isValid = false;
+    }
+    if (!projectData.endDate) {
+      newErrors.endDate = true;
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
   };
 
   const saveProject = async () => {
+    if (!validateForm()) {
+      return; // If validation fails, do not submit
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:8080/addproject",
@@ -53,7 +95,7 @@ const NewProject = () => {
       }
     } catch (error) {
       console.error("Error saving project:", error);
-      alert("An error occurred while saving the project.");
+      // alert("An error occurred while saving the project.");
     }
   };
 
@@ -64,12 +106,21 @@ const NewProject = () => {
           <h2>
             <i className="fa-solid fa-chevron-left"></i> &nbsp; Create Project
           </h2>
+          <a href="logout">
+            <img
+              src="/src/assets/images/Logout.svg"
+              alt="Logo"
+              className="logout-img"
+            />
+          </a>
+
           <img
             src="/src/assets/images/Logo.svg"
             alt="Logo"
             className="New-logo"
           />
         </div>
+
         <div className="From-container">
           <div className="conent-container">
             <div className="first-div">
@@ -80,8 +131,15 @@ const NewProject = () => {
                   name="theme"
                   value={projectData.theme}
                   onChange={handleChange}
+                  className={errors.theme ? "Validation" : ""}
                 />
+                {errors.theme && (
+                  <span className="Validation-error">
+                    This field is required
+                  </span>
+                )}
               </div>
+
               <div className="saveProjectButton">
                 <button onClick={saveProject}>Save Project</button>
               </div>
@@ -129,7 +187,7 @@ const NewProject = () => {
                   >
                     <option>Filters</option>
                     <option>Marketing</option>
-                    <option>Netwoking</option>
+                    <option>Networking</option>
                     <option>Distributing</option>
                   </select>
                 </div>
@@ -147,7 +205,7 @@ const NewProject = () => {
                     <option>Quality A</option>
                     <option>Quality B+</option>
                     <option>Quality B</option>
-                    <option>Quality c</option>
+                    <option>Quality C</option>
                   </select>
                 </div>
               </div>
@@ -197,7 +255,7 @@ const NewProject = () => {
                     <option>Mumbai</option>
                     <option>Delhi</option>
                     <option>Nagpur</option>
-                    <option>bengluru</option>
+                    <option>Bangalore</option>
                   </select>
                 </div>
               </div>
@@ -210,7 +268,13 @@ const NewProject = () => {
                     name="startDate"
                     value={projectData.startDate}
                     onChange={handleChange}
+                    className={errors.startDate ? "Validation" : ""}
                   />
+                  {errors.startDate && (
+                    <span className="Validation-error">
+                      This field is required
+                    </span>
+                  )}
                 </div>
               </div>
 
@@ -222,7 +286,13 @@ const NewProject = () => {
                     name="endDate"
                     value={projectData.endDate}
                     onChange={handleChange}
+                    className={errors.endDate ? "Validation" : ""}
                   />
+                  {errors.endDate && (
+                    <span className="Validation-error">
+                      This field is required
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

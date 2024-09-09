@@ -11,7 +11,7 @@ const Dashboard = () => {
       try {
         const response = await axios.get(
           "http://localhost:8080/dashboard/stats"
-        ); // full URL
+        );
         console.log("Fetched data:", response.data);
         setData(response.data);
       } catch (error) {
@@ -50,6 +50,13 @@ const Dashboard = () => {
             alt="Logo"
             className="login-logo"
           />
+          <a href="logout">
+            <img
+              src="/src/assets/images/Logout.svg"
+              alt="Logo"
+              className="logout-img"
+            />
+          </a>
         </div>
         <div className="Container-body">
           <div className="cards-container">

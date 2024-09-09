@@ -32,14 +32,15 @@ body {
 .login-logo img {
   height: 76px;
   width: 85px;
-  margin: 10px 640px 0px 641px;
+  margin: -35px;
 }
 
-.login-logo h3 {
-  margin: 20px 580px 30px 587px;
+.login-logo h2 {
+  position: absolute;
+  margin: 50px 0px 30px -96px;
   height: 22px;
-  width: 210px;
-  color: #ffffff;
+  width: 250px;
+  color: #ffff;
   font-family: "Nunito Sans";
   font-weight: 400;
   font-size: 16px;
@@ -48,6 +49,7 @@ body {
 }
 
 .login-box {
+  margin-top: 30px;
   height: 450px;
   width: 410px;
   border-radius: 10px;
@@ -55,7 +57,7 @@ body {
   box-shadow: 0 7px 18px 0 rgba(2, 118, 179, 0.13);
 }
 
-h3 {
+.login-box h3 {
   height: 27px;
   width: 190px;
   margin: 50px 122px 62px 118px;
@@ -130,7 +132,6 @@ h3 {
 .login-button {
   height: 36px;
   width: 169px;
-
   border: none;
   border-radius: 20px;
   background-color: #008cdd;
@@ -168,4 +169,106 @@ h3 {
   color: red;
   font-size: 13px;
   opacity: 0.7;
+}
+.bg-img {
+  display: none;
+}
+.logo-img {
+  display: none;
+}
+.login-bg {
+  display: none;
+}
+.logo {
+  display: none;
+}
+.login-box h2 {
+  display: none;
+}
+/* ************************For screens smaller Screen sizes ***************************/
+@media screen and (max-width: 480px) {
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  .login-container {
+    width: 375px;
+    height: 667px;
+    overflow: hidden;
+    background-color: #f5f7fa;
+    /* background-position: top; */
+
+    margin-top: 0px;
+  }
+
+  .heading {
+    position: absolute;
+    margin-bottom: -100px;
+  }
+  .login-box {
+    height: 667px;
+    background-color: #f5f7fa;
+    border: none;
+    margin-top: -65px;
+    position: relative;
+  }
+  .login-bg {
+    display: flex;
+    position: absolute;
+    height: 300px;
+    border-radius: 0 0 0 87px;
+    margin-left: 15px;
+  }
+  .login-box h3 {
+    height: 35px;
+    width: 190px;
+    margin: 330px 100px 10px 37px;
+  }
+  .input-group label {
+    height: 25px;
+    margin-left: -2px;
+  }
+  .login-box h2 {
+    display: flex;
+    z-index: 4;
+    height: 22px;
+    width: 210px;
+    color: #ffffff;
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 190px 80px 0 105px;
+
+    position: absolute;
+  }
+  .logo {
+    display: flex;
+    z-index: 4;
+    height: 76px;
+    width: 85px;
+    margin: 91px 110px 0 167px;
+    position: absolute;
+  }
+
+  .input1 {
+    height: 48px;
+    width: 328px;
+    margin-top: 380px;
+  }
+  .input2 {
+    margin-top: 50px;
+  }
+  .login-button {
+    align-items: center;
+    width: 350px;
+    margin: 40px 10px 0px 30px;
+  }
+  .login-logo {
+    display: none;
+  }
+  .login-logo h2 {
+    display: none;
+  }
 }

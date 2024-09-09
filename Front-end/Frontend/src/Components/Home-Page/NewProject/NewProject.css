@@ -1,3 +1,8 @@
+.container {
+  height: 800px;
+  width: 1308px;
+  position: relative;
+}
 .header {
   margin-top: 36.7px;
   height: 150px;
@@ -139,15 +144,29 @@ label {
   letter-spacing: 0;
   line-height: 19px;
 }
+.logout-img {
+  display: none;
+}
+/* Validation styling */
+.Validation {
+  border-color: red !important;
+}
 
+.Validation-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 0px;
+  display: block; /* Ensures the error message appears on a new line */
+}
+
+/**************************************************************************************/
 @media screen and (max-width: 480px) {
   .From-container {
-    height: 1040px;
+    height: 1110px;
     width: 350px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 7px 18px 0 rgba(2, 118, 179, 0.13);
-
     padding-bottom: 100px;
     padding-top: 30px;
     margin-bottom: 130px;
@@ -196,5 +215,15 @@ label {
   }
   label {
     margin-left: 10px;
+  }
+  .logout-img {
+    display: flex;
+    z-index: 4;
+    height: 20px;
+    width: 20px;
+    margin: 70px 300px 20px 10px;
+    box-sizing: border-box;
+    height: 25px;
+    width: 30px;
   }
 }

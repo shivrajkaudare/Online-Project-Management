@@ -1,14 +1,14 @@
 /* Dashboard.css */
 
 .container {
-  height: 768px;
+  height: 800px;
   width: 1308px;
   position: relative;
 }
 
 .header {
   margin-top: 36.7px;
-  height: 350px;
+  height: 150px;
   width: 1308px;
   background-image: url("/src/assets/images/Header-bg.svg");
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@
 }
 
 .header h2 {
-  margin: 50px 486px 81px 50px;
+  margin: 50px 486px 81px 40px;
   color: #ffffff;
   font-family: "Nunito Sans";
   font-size: 22px;
@@ -27,13 +27,354 @@
   position: absolute;
 }
 
-.login-logo {
+.New-logo {
   align-items: center;
   height: 53px;
   width: 60px;
   opacity: 1;
-  margin: 35px 600px 26px 620px;
+  margin: 30px 600px 26px 620px;
 }
 
-.tablecontainer {
+.add-container {
+  width: 1230px;
+  height: 535px;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 7px 18px 0 rgba(2, 118, 179, 0.13);
+  margin: 140px 19px 0px 19px;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.project-table {
+  margin: 17px;
+  width: 1200px;
+  border-collapse: collapse;
+  font-family: "Arial", sans-serif;
+}
+
+.project-table th,
+.project-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.project-table thead {
+  height: 40px;
+  width: 1200px;
+  background-color: #ebf5ff;
+}
+.project-table th {
+  height: 19px;
+  width: 87px;
+  color: #3f3f3f;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.project-table tbody tr {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.project-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.action-btn {
+  height: 25px;
+  width: 65px;
+  border-radius: 18px;
+}
+
+.start {
+  box-sizing: border-box;
+  height: 25px;
+  width: 65px;
+  border-radius: 18px;
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  padding: 3px 0 3px 0;
+}
+
+.close {
+  color: #025aab;
+  background-color: white;
+  border: 1px solid #025aab;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  margin-left: 8px;
+}
+.close:hover {
+  color: #025aab;
+  background-color: white;
+  border: 1px solid #025aab;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  margin-left: px;
+}
+.cancel {
+  color: #025aab;
+  background-color: white;
+  border: 1px solid #025aab;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  margin-left: 8px;
+}
+.cancel:hover {
+  color: #025aab;
+  background-color: white;
+  border: 1px solid #025aab;
+  text-align: center;
+  padding: 3px 0 3px 0;
+  margin-left: 8px;
+}
+
+.container .controls {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  margin-top: -20px;
+  position: sticky;
+}
+
+.search-bar {
+  width: 252px;
+  height: 26px;
+  margin: 16px 0 17px 23px;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #414950;
+  padding: 8px 0;
+  outline: none;
+}
+/* .search-bar:focus {
+  border-bottom-color: #007bff;
+} */
+
+.sort-dropdown {
+  margin-top: 18px;
+  margin-right: -70px;
+  height: 40px;
+  width: 200px;
+  border: none;
+}
+.sort-dropdown select {
+  color: #414950;
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+.sort-dropdown label {
+  color: #3f3f3f;
+  font-size: 17px;
+  opacity: 0.7;
+}
+.sort-dropdown:focus {
+  outline: none;
+}
+
+.project-theme {
+  height: 22px;
+  width: 228px;
+  color: #414950;
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.44px;
+  line-height: 22px;
+}
+.date {
+  height: 19px;
+  width: 187px;
+  color: #6b6b6b;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+.project-data {
+  height: 19px;
+  width: 48px;
+  color: #3f3f3f;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+/***************************************************************************/
+.pagination {
+  height: 25px;
+  width: 219px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin: 20px 544px 22px 545px;
+}
+
+.pagination-btn {
+  background: none;
+  border: none;
+  color: #414950;
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+.pagination-btn.active {
+  background-color: #0cc9e8;
+}
+.pagination-btn.active:hover {
+  background-color: #0cc9e8;
+}
+
+.pagination-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination-btn:disabled {
+  cursor: not-allowed;
+  background-color: #e0e0e0;
+}
+.project-cards {
+  display: none;
+}
+.logout-img {
+  display: none;
+}
+
+/* ************************************** media query**************/
+@media screen and (max-width: 480px) {
+  .container {
+    height: 667px;
+    width: 375px;
+    position: relative;
+    margin: 0;
+  }
+  .add-container {
+    background-color: none;
+    height: 1000px;
+    width: 380px;
+    margin: 70px 16px 80px -10px;
+    background-color: #d8d8d8;
+  }
+  .header {
+    height: 60px;
+    width: 360px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -60px;
+    padding: 10px 15px 60px 0;
+  }
+  .header h2 {
+    margin: 70px 20px 14px 40px;
+  }
+  .project-table {
+    display: none;
+  }
+  .project-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 257px;
+    width: 328px;
+    margin-left: 14px;
+  }
+  .project-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .card-body {
+    flex-grow: 1;
+    padding: 10px 0;
+  }
+
+  .card-body p {
+    margin: 5px 0;
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
+  }
+  .action-buttons button {
+    height: 36px;
+    width: 88px;
+  }
+  .container .controls {
+    background-color: #d8d8d8;
+  }
+  .controls input {
+    background-color: #d8d8d8;
+  }
+  .logout-img {
+    display: flex;
+    z-index: 4;
+    height: 20px;
+    width: 20px;
+    margin: 70px 0px 20px 330px;
+    box-sizing: border-box;
+    height: 25px;
+    width: 30px;
+  }
+  .container .controls {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #d8d8d8;
+    position: sticky;
+  }
+  .search-bar {
+    height: 29px;
+    width: 200px;
+    margin-left: -20px;
+  }
+  .sort-dropdown {
+    height: 24px;
+    width: 100px;
+    margin-right: 0px;
+  }
+  .sort-dropdown label {
+    /* font-size: 15px; */
+    display: none;
+  }
+  .sort-dropdown select {
+    background-color: #d8d8d8;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./Login.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ function Login() {
     return "";
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const email = formData.email;
@@ -57,15 +58,22 @@ function Login() {
     if (emailError || passwordError) {
       setLoginError(""); // Clear previous login errors
     } else {
-      // login check
-      if (email === "shiv@gmail.com" && password === "password123") {
-        navigate("/dashboard"); // Redirect to the dashboard after successful login
-      } else {
+      try {
+        const response = await axios.post("http://localhost:8080/login", {
+          email,
+          password,
+        });
+
+        if (response.status === 200) {
+          // if jwt token matches then
+          navigate("/dashboard");
+        }
+      } catch (error) {
         setLoginError(
           <div className="Invalid-Credential">
             <h4>Invalid Credentials</h4>
           </div>
-        ); // Set login error message
+        );
       }
     }
   };
@@ -74,10 +82,17 @@ function Login() {
     <div className="login-container">
       <div className="login-logo">
         <img src="/src/assets/images/Logo.svg" alt="Logo" />
-        <h3>Project Management System</h3>
+        <h2> Online Project Management </h2>
       </div>
       <div className="login-box">
-        <h3>Login to get started</h3>
+        <img
+          src="/src/assets/images/login-bg-1.svg"
+          alt="Logo"
+          className="login-bg"
+        />
+        <h2> Online Project Management </h2>
+        <img src="/src/assets/images/Logo.svg" alt="Logo" className="logo" />
+        <h3 className="heading">Login to get started</h3>
         <form className="login-form" onSubmit={handleSubmit} noValidate>
           <div className="input1">
             <div className="input-group">

@@ -7,9 +7,6 @@
 }
 
 .header {
-  /* margin-top: 36.7px;
-  height: 150px;
-  width: 1308px; */
   background-image: url("/src/assets/images/Header-bg.svg");
   background-repeat: no-repeat;
   display: flex;
@@ -120,15 +117,27 @@ h3 {
   letter-spacing: 0;
   line-height: 27px;
 }
-
-@media screen and (max-width: 480px) {
+.logout-img {
+  display: none;
+}
+/********************************CSS for smaller screens*************************/
+@media (max-width: 480px) {
+  .logout-img {
+    display: flex;
+    z-index: 4;
+    height: 20px;
+    width: 20px;
+    margin: 70px 0px 20px 330px;
+    box-sizing: border-box;
+    height: 25px;
+    width: 30px;
+  }
   .container {
     height: 667px;
     width: 375px;
     position: relative;
     margin: 0;
   }
-
   /* */
   .cards-container {
     height: 75px;
@@ -196,5 +205,14 @@ h3 {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 490px;
+  }
+  .cards-container {
+    padding-top: 30px;
+    height: 75px;
+    overflow-x: auto;
+  }
+  .cards-container .Cards {
+    height: 75px;
+    width: -220px;
   }
 }
