@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import ChartDataLabels from "chartjs-plugin-datalabels";
 
 ChartJS.register(
   CategoryScale,
@@ -17,7 +18,8 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  ChartDataLabels
 );
 
 const BarChart = () => {
@@ -26,13 +28,12 @@ const BarChart = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    // Check for small screen
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 480); // e.g., 480px breakpoint for small screens
+      setIsSmallScreen(window.innerWidth < 480);
     };
 
     window.addEventListener("resize", handleResize);
-    handleResize(); // Call it once to set the initial state
+    handleResize(); // Initial call to set the correct state
 
     const fetchData = async () => {
       try {
@@ -41,15 +42,14 @@ const BarChart = () => {
         );
         const data = response.data;
 
-        // Prepare chart data based on the response
         const departments = data.map((d) => {
           const percentage =
             d.totalProjects > 0
-              ? ((d.closedProjects / d.totalProjects) * 100).toFixed(1) // Round to one decimal place
+              ? ((d.closedProjects / d.totalProjects) * 100).toFixed(1)
               : 0;
-          // Return the percentage and department as an array to split lines
           return [`${percentage}%`, `${d.department}`];
         });
+
         const totalProjects = data.map((d) => d.totalProjects);
         const closedProjects = data.map((d) => d.closedProjects);
 
@@ -61,9 +61,19 @@ const BarChart = () => {
               data: totalProjects,
               backgroundColor: "#025AAB",
               borderRadius: 10,
-              barThickness: isSmallScreen ? 5 : 8, // Thinner bars for smaller screens
-              barPercentage: 0.8,
-              categoryPercentage: 0.5,
+              barThickness: isSmallScreen ? 5 : 8,
+              barPercentage: 0.6, // Space between bars in the same group
+              categoryPercentage: 0.5, // Space between groups of bars
+              datalabels: {
+                display: true,
+                anchor: "end",
+                align: "top",
+                formatter: (value) => value, // Show only number
+                color: "black",
+                font: {
+                  size: isSmallScreen ? 10 : 12,
+                },
+              },
             },
             {
               label: "Closed ",
@@ -71,8 +81,18 @@ const BarChart = () => {
               backgroundColor: "#7EC858",
               borderRadius: 10,
               barThickness: isSmallScreen ? 5 : 8,
-              barPercentage: 0.8,
+              barPercentage: 0.6,
               categoryPercentage: 0.5,
+              datalabels: {
+                display: true,
+                anchor: "end",
+                align: "top",
+                formatter: (value) => value, // Show only number
+                color: "black",
+                font: {
+                  size: isSmallScreen ? 10 : 12,
+                },
+              },
             },
           ],
         };
@@ -100,9 +120,12 @@ const BarChart = () => {
           usePointStyle: true,
           padding: isSmallScreen ? 10 : 30,
           font: {
-            size: isSmallScreen ? 10 : 12, // Smaller font for legend on small screens
+            size: isSmallScreen ? 10 : 12,
           },
         },
+      },
+      datalabels: {
+        display: false, // Global config to turn off labels
       },
     },
     scales: {
@@ -112,7 +135,7 @@ const BarChart = () => {
         },
         ticks: {
           font: {
-            size: isSmallScreen ? 10 : 12, // Smaller font for ticks
+            size: isSmallScreen ? 10 : 12,
             weight: "bold",
           },
         },
@@ -122,7 +145,7 @@ const BarChart = () => {
         ticks: {
           stepSize: 5,
           font: {
-            size: isSmallScreen ? 12 : 14, // Smaller font for y-axis
+            size: isSmallScreen ? 12 : 14,
           },
         },
         grid: {
@@ -130,10 +153,8 @@ const BarChart = () => {
         },
       },
     },
-    grouped: true,
   };
 
-  // for smaller screen
   return (
     <div style={{ width: "100%", height: isSmallScreen ? "375px" : "370px" }}>
       {loading ? (
