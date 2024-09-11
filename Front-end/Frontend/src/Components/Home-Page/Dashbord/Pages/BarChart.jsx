@@ -23,8 +23,17 @@ ChartJS.register(
 const BarChart = () => {
   const [chartData, setChartData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
+    // Check for small screen
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 480); // e.g., 480px breakpoint for small screens
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call it once to set the initial state
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -33,7 +42,14 @@ const BarChart = () => {
         const data = response.data;
 
         // Prepare chart data based on the response
-        const departments = data.map((d) => d.department);
+        const departments = data.map((d) => {
+          const percentage =
+            d.totalProjects > 0
+              ? ((d.closedProjects / d.totalProjects) * 100).toFixed(1) // Round to one decimal place
+              : 0;
+          // Return the percentage and department as an array to split lines
+          return [`${percentage}%`, `${d.department}`];
+        });
         const totalProjects = data.map((d) => d.totalProjects);
         const closedProjects = data.map((d) => d.closedProjects);
 
@@ -41,20 +57,20 @@ const BarChart = () => {
           labels: departments,
           datasets: [
             {
-              label: "Total Projects",
+              label: "Total ",
               data: totalProjects,
-              backgroundColor: "#3687DC",
+              backgroundColor: "#025AAB",
               borderRadius: 10,
-              barThickness: 8,
+              barThickness: isSmallScreen ? 5 : 8, // Thinner bars for smaller screens
               barPercentage: 0.8,
               categoryPercentage: 0.5,
             },
             {
-              label: "Closed Projects",
+              label: "Closed ",
               data: closedProjects,
               backgroundColor: "#7EC858",
               borderRadius: 10,
-              barThickness: 8,
+              barThickness: isSmallScreen ? 5 : 8,
               barPercentage: 0.8,
               categoryPercentage: 0.5,
             },
@@ -70,7 +86,9 @@ const BarChart = () => {
     };
 
     fetchData();
-  }, []);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isSmallScreen]);
 
   const options = {
     responsive: true,
@@ -80,9 +98,9 @@ const BarChart = () => {
         position: "bottom",
         labels: {
           usePointStyle: true,
-          padding: 30,
+          padding: isSmallScreen ? 10 : 30,
           font: {
-            size: 12,
+            size: isSmallScreen ? 10 : 12, // Smaller font for legend on small screens
           },
         },
       },
@@ -94,7 +112,7 @@ const BarChart = () => {
         },
         ticks: {
           font: {
-            size: 12,
+            size: isSmallScreen ? 10 : 12, // Smaller font for ticks
             weight: "bold",
           },
         },
@@ -104,7 +122,7 @@ const BarChart = () => {
         ticks: {
           stepSize: 5,
           font: {
-            size: 14,
+            size: isSmallScreen ? 12 : 14, // Smaller font for y-axis
           },
         },
         grid: {
@@ -115,8 +133,9 @@ const BarChart = () => {
     grouped: true,
   };
 
+  // for smaller screen
   return (
-    <div style={{ width: "100%", height: "370px" }}>
+    <div style={{ width: "100%", height: isSmallScreen ? "375px" : "370px" }}>
       {loading ? (
         <p>Loading chart...</p>
       ) : (
