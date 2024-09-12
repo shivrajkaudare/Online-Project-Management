@@ -3,11 +3,13 @@ const Project = require("../models/newProjectSchema.js");
 
 const dashboard = async (req, res) => {
   try {
+    const currDate = new Date();
     const totalProjects = await Project.countDocuments();
     const closedProjects = await Project.countDocuments({ status: "Closed" });
     const runningProjects = await Project.countDocuments({ status: "Running" });
     const closureDelayProjects = await Project.countDocuments({
-      status: "Closure Delay",
+      status: "Running",
+      endDate: { $lte: currDate },
     });
     const cancelledProjects = await Project.countDocuments({
       status: "Cancelled",
