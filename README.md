@@ -1,5 +1,4 @@
-<h2>Techprimelab Assignment :</h2><br>
-<h3> Assignment introduction </h3>
+<h2>Online Project Management:</h2><br>
 • Mini Project having full stack project functionalities. it contains 3 Pages Dashboard, Project listing and Add new Project. these pages contain functionalities like add project, update prooject , change project status(Running, cancelled, Closed), etc. <br>
 
 <h3>Technologies used are </h3>
