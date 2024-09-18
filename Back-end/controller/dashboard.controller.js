@@ -1,4 +1,5 @@
-// // Route to fetch dashboard stats
+// Route to fetch dashboard stats.
+
 const Project = require("../models/newProjectSchema.js");
 
 const dashboard = async (req, res) => {
