@@ -6,6 +6,7 @@ import "./Dashbord.css";
 const Dashboard = () => {
   const [data, setData] = useState(null);
 
+  // fetch data from api
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
@@ -20,7 +21,7 @@ const Dashboard = () => {
     };
 
     fetchDashboardData();
-  }, []);
+  }, []); // empty array because when page loads first time it loads data on webpage.
 
   const chartData = data
     ? {
