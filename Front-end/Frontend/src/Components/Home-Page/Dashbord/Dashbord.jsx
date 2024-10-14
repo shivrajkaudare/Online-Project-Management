@@ -21,7 +21,7 @@ const Dashboard = () => {
     };
 
     fetchDashboardData();
-  }, []); // empty array because when page loads first time it loads data on webpage.
+  }, []); // state variable is empty array because its only works when webpage render first time.
 
   const chartData = data
     ? {
