@@ -17,7 +17,7 @@ const jwt = require("jsonwebtoken");
 
 const userRoutes = require("./routers/user.router.js"); //  user routes
 const dashboardRouter = require("./routers/dashboard.router.js"); // dashboard routes
-const projectRouter = require("./routers/project.routes.js"); // project routes
+const projectRouter = require("./routers/project.router.js"); // project routes
 
 const app = express();
 const PORT = 8080;
